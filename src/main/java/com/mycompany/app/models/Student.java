@@ -40,4 +40,32 @@ public class Student {
     public Account getAccount() {
         return account;
     }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getClassroom() {
+        return classroom;
+    }
 }
