@@ -2,6 +2,7 @@ package com.mycompany.app.models;
 
 import com.mycompany.app.services.*;
 import com.mycompany.app.utilities.*;
+import java.time.LocalDate;
 import java.util.HashMap;
 
 public class Account {
@@ -72,5 +73,9 @@ public class Account {
             case STUDENT -> {}
             case TEACHER -> {}
         }
+    }
+
+    public String lastLogin() {
+        return LocalDate.now().toString();
     }
 }

@@ -2,7 +2,6 @@ package com.mycompany.app.models;
 
 import com.mycompany.app.utilities.*;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class Student {
 
@@ -45,8 +44,8 @@ public class Student {
         return fullname;
     }
 
-    public LocalDate getDob() {
-        return dob;
+    public String getDob() {
+        return dob.format(Constants.DATE_FORMAT);
     }
 
     public Gender getGender() {
@@ -67,5 +66,37 @@ public class Student {
 
     public String getClassroom() {
         return classroom;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setClassroom(String classroom) {
+        this.classroom = classroom;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
