@@ -1,9 +1,13 @@
 package com.mycompany.app.models;
 
-import com.mycompany.app.services.*;
-import com.mycompany.app.utilities.*;
 import java.time.LocalDate;
 import java.util.HashMap;
+
+import com.mycompany.app.services.AuthService;
+import com.mycompany.app.utilities.animation.Effect;
+import com.mycompany.app.utilities.constants.Role;
+import com.mycompany.app.utilities.helpers.Pair;
+import com.mycompany.app.utilities.io.InformMessage;
 
 public class Account {
 

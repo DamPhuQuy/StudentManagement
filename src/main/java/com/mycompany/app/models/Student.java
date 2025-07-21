@@ -2,8 +2,8 @@ package com.mycompany.app.models;
 
 import java.time.LocalDate;
 
-import com.mycompany.app.utilities.Constants;
-import com.mycompany.app.utilities.Gender;
+import com.mycompany.app.utilities.constants.Constants;
+import com.mycompany.app.utilities.constants.Gender;
 
 public class Student implements PersonProfile{
 

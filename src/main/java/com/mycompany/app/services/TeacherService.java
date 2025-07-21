@@ -1,20 +1,27 @@
 package com.mycompany.app.services;
 
 import java.util.HashMap;
+import java.util.Map;
 
+import com.mycompany.app.models.Enrollment;
 import com.mycompany.app.models.Student;
 import com.mycompany.app.models.Teacher;
-import com.mycompany.app.utilities.Effect;
-import com.mycompany.app.utilities.InformMessage;
-import com.mycompany.app.utilities.ProfileViewer;
+import com.mycompany.app.utilities.animation.Effect;
+import com.mycompany.app.utilities.io.InformMessage;
+import com.mycompany.app.utilities.io.ProfileViewer;
 
 public class TeacherService {
     private HashMap<String, Teacher> teacherMap;
+    private StudentService studentService;
 
     public TeacherService() {}
 
-    public TeacherService(HashMap<String, Teacher> teacherMap) {
+    public TeacherService(
+        HashMap<String, Teacher> teacherMap, 
+        StudentService studentService
+    ) {
         this.teacherMap = teacherMap; 
+        this.studentService = studentService; 
     }
 
     public HashMap<String, Teacher> getTeacherMap() {
@@ -23,6 +30,14 @@ public class TeacherService {
 
     public void setTeacherMap(HashMap<String, Teacher> teacherMap) {
         this.teacherMap = teacherMap;
+    }
+
+    public StudentService getStudentService() {
+        return studentService;
+    }
+
+    public void setStudentService(StudentService studentService) {
+        this.studentService = studentService;
     }
 
     public void addTeacher(Teacher newTeacher) {
@@ -79,4 +94,24 @@ public class TeacherService {
             InformMessage.error("Student not found");
         }
     }
+
+    public void viewStudentEnrollment(Student student) {
+        Effect.progressBar();
+
+        Map<String, Enrollment> map = studentService.getStudentsMap();
+        String username = student.getAccount().getUsername();
+
+        if (map.containsKey(username)) {
+            Enrollment enrollment = map.get(username);
+            if (enrollment != null) {
+                ProfileViewer.printEnrollment(student, enrollment);
+            } else {
+                InformMessage.error("No enrollment found");
+            }
+        } else {
+            InformMessage.error("Student not found");
+        }
+    }
+
+    
 }

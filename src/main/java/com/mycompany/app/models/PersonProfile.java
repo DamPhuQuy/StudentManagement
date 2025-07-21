@@ -1,6 +1,6 @@
 package com.mycompany.app.models;
 
-import com.mycompany.app.utilities.Gender;
+import com.mycompany.app.utilities.constants.Gender;
 
 public interface PersonProfile {
     Account getAccount(); 

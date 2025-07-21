@@ -1,8 +1,9 @@
 package com.mycompany.app.models;
 
-import com.mycompany.app.utilities.Pair;
 import java.time.LocalDate;
 import java.util.HashMap;
+
+import com.mycompany.app.utilities.helpers.Pair;
 
 public class Subjects {
 

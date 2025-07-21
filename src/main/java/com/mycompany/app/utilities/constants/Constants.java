@@ -1,4 +1,4 @@
-package com.mycompany.app.utilities;
+package com.mycompany.app.utilities.constants;
 
 import java.time.format.DateTimeFormatter;
 

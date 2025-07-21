@@ -1,4 +1,4 @@
-package com.mycompany.app.utilities;
+package com.mycompany.app.utilities.helpers;
 
 public class Pair<T, U> {
 

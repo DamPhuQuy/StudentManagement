@@ -6,11 +6,11 @@ import java.util.HashMap;
 import com.mycompany.app.models.Enrollment;
 import com.mycompany.app.models.Student;
 import com.mycompany.app.models.Subjects;
-import com.mycompany.app.utilities.Constants;
-import com.mycompany.app.utilities.Effect;
-import com.mycompany.app.utilities.InformMessage;
-import com.mycompany.app.utilities.Pair;
-import com.mycompany.app.utilities.ProfileViewer;
+import com.mycompany.app.utilities.animation.Effect;
+import com.mycompany.app.utilities.constants.Constants;
+import com.mycompany.app.utilities.helpers.Pair;
+import com.mycompany.app.utilities.io.InformMessage;
+import com.mycompany.app.utilities.io.ProfileViewer;
 
 public class StudentService {
 

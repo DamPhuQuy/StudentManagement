@@ -1,7 +1,9 @@
 package com.mycompany.app.services;
 
-import com.mycompany.app.utilities.*;
 import java.util.HashMap;
+
+import com.mycompany.app.utilities.constants.Role;
+import com.mycompany.app.utilities.helpers.Pair;
 
 public class AuthService {
 
