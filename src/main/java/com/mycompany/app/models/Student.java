@@ -1,9 +1,11 @@
 package com.mycompany.app.models;
 
-import com.mycompany.app.utilities.*;
 import java.time.LocalDate;
 
-public class Student {
+import com.mycompany.app.utilities.Constants;
+import com.mycompany.app.utilities.Gender;
+
+public class Student implements PersonProfile{
 
     private Account account;
     private String fullname;
@@ -36,30 +38,38 @@ public class Student {
         this.classroom = classroom;
     }
 
+    @Override
     public Account getAccount() {
         return account;
     }
 
+
+    @Override
     public String getFullname() {
         return fullname;
     }
 
+    @Override
     public String getDob() {
         return dob.format(Constants.DATE_FORMAT);
     }
 
+    @Override
     public Gender getGender() {
         return gender;
     }
 
+    @Override
     public String getEmail() {
         return email;
     }
 
+    @Override
     public String getAddress() {
         return address;
     }
 
+    @Override
     public String getPhone() {
         return phone;
     }

@@ -1,10 +1,12 @@
 package com.mycompany.app.models;
 
-import com.mycompany.app.utilities.*;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Teacher {
+import com.mycompany.app.utilities.Constants;
+import com.mycompany.app.utilities.Gender;
+
+public class Teacher implements PersonProfile {
 
     private String fullname;
     private LocalDate dob;
@@ -40,6 +42,7 @@ public class Teacher {
         this.account = account;
     }
 
+    @Override
     public String getFullname() {
         return fullname;
     }
@@ -48,14 +51,16 @@ public class Teacher {
         this.fullname = fullname;
     }
 
-    public LocalDate getDob() {
-        return dob;
+    @Override
+    public String getDob() {
+        return dob.format(Constants.DATE_FORMAT);
     }
 
     public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 
+    @Override
     public Gender getGender() {
         return gender;
     }
@@ -64,6 +69,7 @@ public class Teacher {
         this.gender = gender;
     }
 
+    @Override
     public String getEmail() {
         return email;
     }
@@ -72,6 +78,7 @@ public class Teacher {
         this.email = email;
     }
 
+    @Override
     public String getPhone() {
         return phone;
     }
@@ -80,6 +87,7 @@ public class Teacher {
         this.phone = phone;
     }
 
+    @Override
     public String getAddress() {
         return address;
     }
@@ -104,6 +112,7 @@ public class Teacher {
         this.level = level;
     }
 
+    @Override
     public Account getAccount() {
         return account;
     }

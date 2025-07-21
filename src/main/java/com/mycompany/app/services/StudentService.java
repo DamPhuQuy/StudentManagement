@@ -1,9 +1,16 @@
 package com.mycompany.app.services;
 
-import com.mycompany.app.models.*;
-import com.mycompany.app.utilities.*;
 import java.time.LocalDate;
 import java.util.HashMap;
+
+import com.mycompany.app.models.Enrollment;
+import com.mycompany.app.models.Student;
+import com.mycompany.app.models.Subjects;
+import com.mycompany.app.utilities.Constants;
+import com.mycompany.app.utilities.Effect;
+import com.mycompany.app.utilities.InformMessage;
+import com.mycompany.app.utilities.Pair;
+import com.mycompany.app.utilities.ProfileViewer;
 
 public class StudentService {
 
@@ -70,15 +77,8 @@ public class StudentService {
         if (studentsMap.containsKey(student.getAccount().getUsername())) {
             System.out.println("Student Profile:");
             System.out.println("Name: " + student.getFullname());
-            System.out.println(
-                "Day of birth " +
-                student.getDob().formatted(Constants.DATE_FORMAT)
-            );
-            System.out.println("Gender " + student.getGender().toString());
-            System.out.println("Email " + student.getEmail());
-            System.out.println("Address " + student.getAddress());
-            System.out.println("Phone Number " + student.getPhone());
-            System.out.println("Class " + student.getClassroom());
+            ProfileViewer.viewBasicProfile(student);
+            System.out.println("Class: " + student.getClassroom());
         } else {
             InformMessage.error("Student not found");
         }
@@ -118,11 +118,9 @@ public class StudentService {
                 }
             } else {
                 InformMessage.error("No enrollment found");
-                return;
             }
         } else {
             InformMessage.error("Student not found");
-            return;
         }
     }
 
