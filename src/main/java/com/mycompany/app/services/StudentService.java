@@ -8,11 +8,12 @@ import com.mycompany.app.models.Student;
 import com.mycompany.app.models.Subjects;
 import com.mycompany.app.utilities.animation.Effect;
 import com.mycompany.app.utilities.constants.Constants;
+import com.mycompany.app.utilities.helpers.Menu;
 import com.mycompany.app.utilities.helpers.Pair;
 import com.mycompany.app.utilities.io.InformMessage;
 import com.mycompany.app.utilities.io.ProfileViewer;
 
-public class StudentService {
+public class StudentService implements Menu{
 
     HashMap<String, Enrollment> studentsMap;
 
@@ -30,6 +31,11 @@ public class StudentService {
 
     public void setStudentsMap(HashMap<String, Enrollment> studentsMap) {
         this.studentsMap = studentsMap;
+    }
+
+    @Override
+    public void showMenu() {
+        
     }
 
     public void addStudent(Student newStudent, Subjects subjects) {

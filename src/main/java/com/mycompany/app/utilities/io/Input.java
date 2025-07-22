@@ -2,7 +2,6 @@ package com.mycompany.app.utilities.io;
 
 import com.mycompany.app.models.*;
 import com.mycompany.app.utilities.constants.Gender;
-import com.mycompany.app.utilities.viewer.InformMessage;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -12,7 +11,9 @@ import java.util.regex.*;
 
 public class Input {
 
-    public static Student InsertStudentInfo(Account account) {
+    private Input() {}
+
+    public static Student insertStudentInfo(Account account) {
         Scanner scanner = new Scanner(System.in);
         Student newStudent = new Student();
 
@@ -79,7 +80,7 @@ public class Input {
         return newStudent;
     }
 
-    public static Subjects InsertStudentSubjects() {
+    public static Subjects insertStudentSubjects() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Number of subjects in semester: ");

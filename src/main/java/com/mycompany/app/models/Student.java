@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import com.mycompany.app.utilities.constants.Constants;
 import com.mycompany.app.utilities.constants.Gender;
+import com.mycompany.app.utilities.helpers.PersonProfile;
 
 public class Student implements PersonProfile{
 

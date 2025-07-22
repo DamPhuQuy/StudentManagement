@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.mycompany.app.utilities.constants.Constants;
 import com.mycompany.app.utilities.constants.Gender;
+import com.mycompany.app.utilities.helpers.PersonProfile;
 
 public class Teacher implements PersonProfile {
 

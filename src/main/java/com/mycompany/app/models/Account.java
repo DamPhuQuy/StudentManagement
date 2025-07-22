@@ -71,14 +71,6 @@ public class Account {
         }
     }
 
-    public static void showMenu(Role role) {
-        System.out.println("\n--- MENU ---");
-        switch (role) {
-            case STUDENT -> {}
-            case TEACHER -> {}
-        }
-    }
-
     public String lastLogin() {
         return LocalDate.now().toString();
     }

@@ -4,13 +4,13 @@ import java.time.LocalDate;
 import java.util.Map;
 
 import com.mycompany.app.models.Enrollment;
-import com.mycompany.app.models.PersonProfile;
 import com.mycompany.app.models.Student;
+import com.mycompany.app.utilities.constants.Constants;
 import com.mycompany.app.utilities.helpers.Pair;
-
+import com.mycompany.app.utilities.helpers.PersonProfile;
 public class ProfileViewer {
 
-    public ProfileViewer() {}
+    private ProfileViewer() {}
 
     public static void viewBasicProfile(PersonProfile person) {
         System.out.println("Name: " + person.getFullname());
