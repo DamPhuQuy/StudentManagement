@@ -7,10 +7,12 @@ import com.mycompany.app.models.Enrollment;
 import com.mycompany.app.models.Student;
 import com.mycompany.app.models.Teacher;
 import com.mycompany.app.utilities.animation.Effect;
+import com.mycompany.app.utilities.constants.Role;
 import com.mycompany.app.utilities.io.InformMessage;
 import com.mycompany.app.utilities.io.ProfileViewer;
+import com.mycompany.app.utilities.helpers.Menu;
 
-public class TeacherService {
+public class TeacherService implements Menu {
     private HashMap<String, Teacher> teacherMap;
     private StudentService studentService;
 
@@ -113,5 +115,15 @@ public class TeacherService {
         }
     }
 
-    
+    @Override
+    public void showMenu(Role role) {
+        System.out.println("-----MENU-----"); 
+        System.out.println("Welcome " + role.toString()); 
+        System.out.println("1. View Profile"); 
+        System.out.println("2. View Student Profile");
+        System.out.println("3. View Student Enrollment"); 
+        System.out.println("4. Update Information"); 
+        System.out.println("5. Update Student Enrollment"); 
+        System.out.println("0. Back to menu"); 
+    }   
 }

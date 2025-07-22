@@ -29,6 +29,14 @@ public class Account {
         account.setFirst(username);
     }
 
+    public String getPassword() {
+        return account.getSecond(); 
+    }
+
+    public void setPassword(String password) {
+        account.setSecond(password); 
+    }
+
     public Role getRole() {
         return role;
     }
@@ -36,6 +44,7 @@ public class Account {
     public void setRole(Role role) {
         this.role = role;
     }
+
 
     public boolean login(HashMap<String, Pair<String, Role>> accounts) {
         Effect.progressBar();
@@ -73,5 +82,13 @@ public class Account {
 
     public String lastLogin() {
         return LocalDate.now().toString();
+    }
+
+    public Pair<String, String> getAccount() {
+        return account;
+    }
+
+    public void setAccount(Pair<String, String> account) {
+        this.account = account;
     }
 }

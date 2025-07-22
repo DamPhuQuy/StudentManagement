@@ -8,12 +8,13 @@ import com.mycompany.app.models.Student;
 import com.mycompany.app.models.Subjects;
 import com.mycompany.app.utilities.animation.Effect;
 import com.mycompany.app.utilities.constants.Constants;
+import com.mycompany.app.utilities.constants.Role;
 import com.mycompany.app.utilities.helpers.Menu;
 import com.mycompany.app.utilities.helpers.Pair;
 import com.mycompany.app.utilities.io.InformMessage;
 import com.mycompany.app.utilities.io.ProfileViewer;
 
-public class StudentService implements Menu{
+public class StudentService implements Menu {
 
     HashMap<String, Enrollment> studentsMap;
 
@@ -31,11 +32,6 @@ public class StudentService implements Menu{
 
     public void setStudentsMap(HashMap<String, Enrollment> studentsMap) {
         this.studentsMap = studentsMap;
-    }
-
-    @Override
-    public void showMenu() {
-        
     }
 
     public void addStudent(Student newStudent, Subjects subjects) {
@@ -155,4 +151,14 @@ public class StudentService implements Menu{
             return 0.0;
         }
     }
+
+    @Override
+    public void showMenu(Role role) {
+        System.out.println("-----MENU-----"); 
+        System.out.println("Welcome " + role.toString()); 
+        System.out.println("1. View Profile"); 
+        System.out.println("3. View Enrollment"); 
+        System.out.println("4. Update Information"); 
+        System.out.println("0. Back to menu"); 
+    }   
 }
