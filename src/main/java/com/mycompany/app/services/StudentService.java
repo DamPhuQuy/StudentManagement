@@ -35,6 +35,10 @@ public class StudentService implements Menu {
     }
 
     public void addStudent(Student newStudent, Subjects subjects) {
+        if (studentsMap.containsKey(newStudent.getAccount().getUsername())) {
+            InformMessage.error("Student already exists");
+            return;
+        }
         Enrollment enrollment = new Enrollment(newStudent, subjects);
         studentsMap.put(newStudent.getAccount().getUsername(), enrollment);
     }
@@ -80,7 +84,7 @@ public class StudentService implements Menu {
             System.out.println("Student Profile:");
             System.out.println("Name: " + student.getFullname());
             ProfileViewer.viewBasicProfile(student);
-            System.out.println("Class: " + student.getClassroom());
+            System.out.println("Class: " + student.getClassName());
         } else {
             InformMessage.error("Student not found");
         }
@@ -97,7 +101,7 @@ public class StudentService implements Menu {
             if (enrollment != null) {
                 System.out.println("Enrollment Details:");
                 System.out.println("Student: " + student.getFullname());
-                System.out.println("Classroom: " + student.getClassroom());
+                System.out.println("className: " + student.getClassName());
 
                 HashMap<String, Pair<LocalDate, Double>> subjects = enrollment
                     .getSubjects()
@@ -106,7 +110,7 @@ public class StudentService implements Menu {
                     String d = subjects
                         .get(subjectName)
                         .getFirst()
-                        .format(Constants.DATE_FORMAT);
+                        .format(Constants.DATE_FORMAT_OUTPUT);
                     Double grade = subjects.get(subjectName).getSecond();
 
                     System.out.println(

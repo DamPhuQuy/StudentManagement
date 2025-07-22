@@ -8,9 +8,9 @@ import com.mycompany.app.models.Student;
 import com.mycompany.app.models.Teacher;
 import com.mycompany.app.utilities.animation.Effect;
 import com.mycompany.app.utilities.constants.Role;
+import com.mycompany.app.utilities.helpers.Menu;
 import com.mycompany.app.utilities.io.InformMessage;
 import com.mycompany.app.utilities.io.ProfileViewer;
-import com.mycompany.app.utilities.helpers.Menu;
 
 public class TeacherService implements Menu {
     private HashMap<String, Teacher> teacherMap;
@@ -91,7 +91,7 @@ public class TeacherService implements Menu {
         if (tempService.getStudentsMap().containsKey(student.getAccount().getUsername())) {
             System.out.println("Student Profile:");
             ProfileViewer.viewBasicProfile(student);
-            System.out.println("Class: " + student.getClassroom());
+            System.out.println("Class: " + student.getClassName());
         } else {
             InformMessage.error("Student not found");
         }

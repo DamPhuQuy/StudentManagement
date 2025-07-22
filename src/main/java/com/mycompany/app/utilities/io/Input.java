@@ -1,14 +1,18 @@
 package com.mycompany.app.utilities.io;
 
-import com.mycompany.app.models.*;
-import com.mycompany.app.utilities.constants.Gender;
-import com.mycompany.app.utilities.constants.Constants;
-
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.regex.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import com.mycompany.app.models.Account;
+import com.mycompany.app.models.Student;
+import com.mycompany.app.models.Subjects;
+import com.mycompany.app.models.Teacher;
+import com.mycompany.app.utilities.constants.Constants;
+import com.mycompany.app.utilities.constants.Gender;
 
 public class Input {
 
@@ -73,7 +77,7 @@ public class Input {
                 InformMessage.error("Invalid class format");
                 continue;
             }
-            newStudent.setClassroom(classCode);
+            newStudent.setclassName(classCode);
             break;
         }
 

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 
 import com.mycompany.app.utilities.helpers.Pair;
+import com.mycompany.app.utilities.io.InformMessage;
 
 public class Subjects {
 
@@ -31,7 +32,7 @@ public class Subjects {
         if (!subjects.containsKey(subjectName)) {
             subjects.put(subjectName, new Pair<>(enrollDate, point));
         } else {
-            System.err.println("Subject already exists");
+            InformMessage.error("Subject already exists");
         }
     }
 

@@ -24,7 +24,7 @@ public class ProfileViewer {
     public static void printEnrollment(Student student, Enrollment enrollment) {
        System.out.println("Enrollment Details:");
        System.out.println("Student: " + student.getFullname());
-       System.out.println("Classroom: " + student.getClassroom());
+       System.out.println("className: " + student.getclassName());
 
        var subjects = enrollment.getSubjects().getSubjectsTable();
        for (Map.Entry<String, Pair<LocalDate, Double>> entry : subjects.entrySet()) {

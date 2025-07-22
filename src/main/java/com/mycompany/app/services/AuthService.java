@@ -2,21 +2,20 @@ package com.mycompany.app.services;
 
 import java.util.HashMap;
 
-import com.mycompany.app.utilities.constants.Role;
-import com.mycompany.app.utilities.helpers.Pair;
+import com.mycompany.app.models.Account;
 
 public class AuthService {
 
     public static boolean authenticate(
-        Pair<String, String> account,
-        HashMap<String, Pair<String, Role>> accounts
+        Account account,
+        HashMap<String, Account> accounts
     ) {
-        String username = account.getFirst();
-        String password = account.getSecond();
+        String username = account.getUsername(); 
+        String password = account.getPassword(); 
 
         if (
             accounts.containsKey(username) &&
-            accounts.get(username).getFirst().equals(password)
+            accounts.get(username).getPassword().equals(password)
         ) {
             return true;
         }

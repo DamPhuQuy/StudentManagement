@@ -15,7 +15,7 @@ public class Student implements PersonProfile{
     private String email;
     private String address;
     private String phone;
-    private String classroom;
+    private String className;
 
     public Student() {}
 
@@ -27,7 +27,7 @@ public class Student implements PersonProfile{
         String email,
         String address,
         String phone,
-        String classroom
+        String className
     ) {
         this.account = account;
         this.fullname = fullname;
@@ -36,7 +36,7 @@ public class Student implements PersonProfile{
         this.email = email;
         this.address = address;
         this.phone = phone;
-        this.classroom = classroom;
+        this.className = className;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class Student implements PersonProfile{
 
     @Override
     public String getDob() {
-        return dob.format(Constants.DATE_FORMAT);
+        return dob.format(Constants.DATE_FORMAT_OUTPUT);
     }
 
     @Override
@@ -75,8 +75,8 @@ public class Student implements PersonProfile{
         return phone;
     }
 
-    public String getClassroom() {
-        return classroom;
+    public String getClassName() {
+        return className;
     }
 
     public void setFullname(String fullname) {
@@ -103,8 +103,8 @@ public class Student implements PersonProfile{
         this.phone = phone;
     }
 
-    public void setClassroom(String classroom) {
-        this.classroom = classroom;
+    public void setClassName(String className) {
+        this.className = className;
     }
 
     public void setAccount(Account account) {
