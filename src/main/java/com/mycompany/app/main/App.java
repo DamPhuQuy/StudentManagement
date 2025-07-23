@@ -6,10 +6,9 @@ import java.util.Scanner;
 import com.mycompany.app.models.Account;
 import com.mycompany.app.models.Enrollment;
 import com.mycompany.app.models.Teacher;
+import com.mycompany.app.services.LoginService;
 import com.mycompany.app.services.StudentService;
 import com.mycompany.app.services.TeacherService;
-import com.mycompany.app.utilities.io.InformMessage;
-import com.mycompany.app.services.LoginService;
 
 public class App {
     public static void main(String[] args) {
@@ -20,9 +19,10 @@ public class App {
         StudentService studentService = new StudentService(studentsMap);
         TeacherService teacherService = new TeacherService(teacherMap, studentService);
 
+        int choice;
         do { 
             LoginService.loginMenu();
-            int choice = scanner.nextInt(); 
+            choice = scanner.nextInt(); 
             switch (choice) {
                 case 1 -> {
                     Account account = new Account(); 
@@ -37,7 +37,7 @@ public class App {
                 }
             }
             
-        } 
+        } while (choice != 0); 
 
         scanner.close();
     }

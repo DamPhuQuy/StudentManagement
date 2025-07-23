@@ -77,7 +77,7 @@ public class Input {
                 InformMessage.error("Invalid class format");
                 continue;
             }
-            newStudent.setclassName(classCode);
+            newStudent.setClassName(classCode);
             break;
         }
 
@@ -103,7 +103,7 @@ public class Input {
                 try {
                     enrolledDate = LocalDate.parse(
                         input,
-                        Constants.DATE_FORMAT
+                        Constants.DATE_FORMAT_OUTPUT
                     );
                     break;
                 } catch (Exception e) {
@@ -129,7 +129,7 @@ public class Input {
 
         System.out.println("Date of Birth (dd/MM/yyyy): ");
         String dobInput = scanner.nextLine();
-        LocalDate dob = LocalDate.parse(dobInput, Constants.DATE_FORMAT);
+        LocalDate dob = LocalDate.parse(dobInput, Constants.DATE_FORMAT_OUTPUT);
 
         System.out.println("Gender (M/F): ");
         String genderInput = scanner.nextLine();

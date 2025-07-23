@@ -54,7 +54,7 @@ public class Teacher implements PersonProfile {
 
     @Override
     public String getDob() {
-        return dob.format(Constants.DATE_FORMAT);
+        return dob.format(Constants.DATE_FORMAT_OUTPUT);
     }
 
     public void setDob(LocalDate dob) {
