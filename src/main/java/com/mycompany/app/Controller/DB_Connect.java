@@ -1,5 +1,7 @@
 package com.mycompany.app.Controller;
 
+import com.mycompany.app.Models.Student;
+
 import java.sql.*;
 
 public class DB_Connect {
@@ -27,11 +29,8 @@ public class DB_Connect {
         this.password = password;
     }
 
-    public void insertDB() {
-        String insertQuery = "INSERT INTO student_info (" +
-                "student_id, firstname, lastname, day_of_birth, phone, address, class" +
-                ") VALUES ('1', 'John', 'Doe', '2000-01-01', '0123456789', '123 Main St', 'CS101')";
-
+    public void insertDB(String table, Student newStudent) {
+        String insertQuery = "INSERT INTO "+ table + " VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         // Establish JDBC connection
         try {
@@ -41,15 +40,26 @@ public class DB_Connect {
             // Establish connection
             Connection con = DriverManager.getConnection(url, user, password);
 
-            // Create a Statement
-            Statement stmt = con.createStatement();
+            // Create a PreparedStatement
+            PreparedStatement pstmt = con.prepareStatement(insertQuery);
 
             // Execute a query
-            int rows =  stmt.executeUpdate(insertQuery);
-            System.out.println("Rows affected: " + rows);
+            pstmt.setInt(1, newStudent.getStudent_id());
+            pstmt.setString(2, newStudent.getFirstname());
+            pstmt.setString(3, newStudent.getLastname());
+            pstmt.setDate(4, java.sql.Date.valueOf(newStudent.getDay_of_birth()));
+            pstmt.setString(5, newStudent.getPhone());
+            pstmt.setString(6, newStudent.getAddress());
+            pstmt.setString(7, newStudent.getClassName());
+
+            int rowsInserted = pstmt.executeUpdate();
+
+            if (rowsInserted > 0) {
+                System.out.println("Successfully inserted " + newStudent.getFirstname() + " " + newStudent.getLastname());
+            }
 
             // close
-            stmt.close();
+            pstmt.close();
             con.close();
         } catch (ClassNotFoundException e) {
             System.out.println("JDBC Driver not found" + e.getMessage());

@@ -51,7 +51,7 @@ To connect MySQL using JDBC, we need driver JDBC. Ensure to add dependency MySQL
     }
 ````
 
-### Steps to Connect to MySQL Database Using JDBC
+### Steps to Connect to MySQL Database Using JDBC (Type-4)
 **- Step 1: Load the JDBC Driver**
 ````java
     Class.forName("com.mysql.cj.jdbc.Driver");
