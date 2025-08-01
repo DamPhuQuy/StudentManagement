@@ -8,6 +8,7 @@ public class Student {
     private String phone;
     private String address;
     private String className;
+    private Subjects subject;
 
     public Student(int student_id,
                    String firstname,
@@ -23,6 +24,7 @@ public class Student {
         this.phone = phone;
         this.address = address;
         this.className = className;
+        this.subject = new Subjects();
     }
 
     public int getStudent_id() {
@@ -79,5 +81,13 @@ public class Student {
 
     public void setClassName(String className) {
         this.className = className;
+    }
+
+    public Subjects getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subjects subject) {
+        this.subject = subject;
     }
 }

@@ -22,6 +22,10 @@ dotenv.get("MY_ENV_VAR1"); // return the value of MY_ENV_VAR1
 
 For more details: <a href="https://www.geeksforgeeks.org/java/introduction-to-jdbc/">Geeks For Geeks</a>
 
+### JDBC Working flow
+
+<img src="https://images.viblo.asia/full/31d58a8f-02d8-4078-ae8d-33385ef6193b.png" alt="jdbc working flow">
+
 ### MySQL connector
 
 To connect MySQL using JDBC, we need driver JDBC. Ensure to add dependency MySQL connector
