@@ -9,11 +9,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String url = ReadENV.getConnectionURL();
-        String user = ReadENV.getUsername();
-        String password = ReadENV.getPassword();
-
-        DB_Connect db = new DB_Connect(url, user, password);
+        DB_Connect db = new DB_Connect();
 
         Scanner input = new Scanner(System.in);
 

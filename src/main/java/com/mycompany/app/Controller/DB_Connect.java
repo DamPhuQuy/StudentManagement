@@ -7,29 +7,11 @@ import com.mycompany.app.Utilities.Constants;
 import java.sql.*;
 
 public class DB_Connect {
-    private String url;
-    private String user;
-    private String password;
+    private final String url = ReadENV.getConnectionURL();
+    private final String user = ReadENV.getUsername();
+    private final String password =  ReadENV.getPassword();
 
     public DB_Connect() {}
-
-    public DB_Connect(String url, String user, String password) {
-        this.url = url;
-        this.user = user;
-        this.password = password;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public void insertStudentInfo(String table, Student newStudent) {
         String insertQuery = "INSERT INTO "+ table + " VALUES (?, ?, ?, ?, ?, ?, ?)";
