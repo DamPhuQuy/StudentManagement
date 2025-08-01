@@ -13,6 +13,63 @@ public class DB_Connect {
 
     public DB_Connect() {}
 
+    public boolean register(String table, int student_id, String passwordAcc) {
+        String insertQuery = "INSERT INTO " + table + " VALUES (?, ?)";
+
+        try {
+            Class.forName(Constants.driver);
+
+            Connection con = DriverManager.getConnection(url, user, password);
+
+            PreparedStatement pstmt = con.prepareStatement(insertQuery);
+            pstmt.setInt(1, student_id);
+            pstmt.setString(2, passwordAcc);
+
+            int rowsInserted = pstmt.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("Successfully inserted!");
+                return true;
+            }
+            else {
+                return false;
+            }
+        } catch (ClassNotFoundException e) {
+            System.out.println("JDBC Driver not found" + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.getMessage());
+        }
+
+        return false;
+    }
+
+    public boolean login(String table, int student_id, String passwordAcc) {
+        String selectQuery = "SELECT student_id, password FROM " + table + " WHERE student_id = ? AND password = ?";
+
+        try {
+            Class.forName(Constants.driver);
+
+            Connection con = DriverManager.getConnection(url, user, password);
+
+            PreparedStatement pstmt = con.prepareStatement(selectQuery);
+            pstmt.setInt(1, student_id);
+            pstmt.setString(2, passwordAcc);
+
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        } catch (ClassNotFoundException e) {
+            System.out.println("JDBC Driver not found" + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.getMessage());
+        }
+
+        return false;
+    }
+
     public void insertStudentInfo(String table, Student newStudent) {
         String insertQuery = "INSERT INTO "+ table + " VALUES (?, ?, ?, ?, ?, ?, ?)";
 
