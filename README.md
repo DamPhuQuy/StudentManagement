@@ -3,6 +3,12 @@
 ## Create .env file to store the link, user, password of database
 
 Create a file .env in src\main\resources
+Format:
+````text
+DB_URL="yourDatabase:ink" 
+DB_USERNAME="yourUser"
+DB_PASSWORD="yourPassword"
+````
 
 ## Dotenv-java 
 
