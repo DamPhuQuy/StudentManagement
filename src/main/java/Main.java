@@ -15,7 +15,7 @@ public class Main {
             try {
                 int end = ManipulationService.startMainMenu(student_id);
                 if (end == -1) {
-                    System.out.println("There was an error while trying to start the main menu.");
+                    System.out.println("Exiting main menu...");
                 }
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());

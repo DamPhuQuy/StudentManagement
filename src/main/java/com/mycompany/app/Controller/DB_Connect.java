@@ -6,6 +6,7 @@ import com.mycompany.app.Utilities.Constants;
 
 import java.sql.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class DB_Connect {
     private final String url = ReadENV.getConnectionURL();
@@ -164,20 +165,30 @@ public class DB_Connect {
     public boolean updateInfo(String table, int student_id) {
         Scanner scanner = new Scanner(System.in);
 
+        List<String> validAttributes;
+
+        if (table.equals(Constants.studentTable)) {
+            validAttributes = List.of("firstname", "lastname", "day_of_birth", "phone", "address", "class");
+        } else {
+            validAttributes = List.of("math", "physics", "it", "literature", "english", "japanese");
+        }
+
         System.out.print("How many attributes would you like to update?: ");
         int cols = Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Enter your attributes which you would like to update: ");
-        System.out.println("firstname");
-        System.out.println("lastname");
-        System.out.println("day_of_birth");
-        System.out.println("phone");
-        System.out.println("address");
-        System.out.println("class");
+        System.out.println("Enter your attributes which you would like to update:");
+        for (String attr : validAttributes) {
+            System.out.println(attr);
+        }
 
         List<String> attributes = new ArrayList<>();
         for (int i = 0; i < cols; i++) {
-            attributes.add(scanner.nextLine());
+            String attr = scanner.nextLine();
+            if (!validAttributes.contains(attr)) {
+                System.out.println("Invalid attribute: " + attr);
+                return false;
+            }
+            attributes.add(attr);
         }
 
         Map<String, String> updateValues = new LinkedHashMap<>();
@@ -187,24 +198,21 @@ public class DB_Connect {
             updateValues.put(attr, value);
         }
 
-        List<String> setClauses = new ArrayList<>();
-        for (String attr : attributes) {
-            setClauses.add(attr + " = ?");
-        }
-        String setClause = String.join(", ", setClauses);
-
-        String insertQuery = "UPDATE " + table + " SET " + setClause + " WHERE student_id = ?";
-
+        String setClause = attributes.stream()
+                .map(attr -> attr + " = ?")
+                .collect(Collectors.joining(", "));
+        String updateQuery = "UPDATE " + table + " SET " + setClause + " WHERE student_id = ?";
 
         try {
             Class.forName(Constants.driver);
             Connection con = DriverManager.getConnection(url, user, password);
-            PreparedStatement pstmt = con.prepareStatement(insertQuery.toString());
+            PreparedStatement pstmt = con.prepareStatement(updateQuery.toString());
 
             int index = 1;
             for (String value : updateValues.values()) {
                 pstmt.setString(index++, value);
             }
+            pstmt.setInt(index, student_id);
 
             int rowsUpdated = pstmt.executeUpdate();
             if (rowsUpdated > 0) {
