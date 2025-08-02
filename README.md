@@ -1,5 +1,9 @@
 # StudentManagement
 
+## Create .env file to store the link, user, password of database
+
+Create a file .env in src\main\resources
+
 ## Dotenv-java 
 
 - Using dotenv-java to load .env file that contains secret information about a database.
