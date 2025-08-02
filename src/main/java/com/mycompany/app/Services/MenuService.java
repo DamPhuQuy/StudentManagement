@@ -14,9 +14,8 @@ public class MenuService {
         System.out.println("|              MENU              |");
         System.out.println("+--------------------------------+");
         System.out.println("| 1. View student information    |");
-        System.out.println("| 2. Add student information     |");
-        System.out.println("| 3. Update student information  |");
-        System.out.println("| 4. Delete student information  |");
+        System.out.println("| 2. Update student information  |");
+        System.out.println("| 3. Delete student information  |");
         System.out.println("| 0. Quit                        |");
         System.out.println("----------------------------------");
     }
